@@ -6,39 +6,59 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 10:04:17 by atran             #+#    #+#             */
-/*   Updated: 2025/02/17 16:29:36 by atran            ###   ########.fr       */
+/*   Updated: 2025/02/18 17:33:50 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-char	*read_file(char *file)
+/* void	ft_print_map(char ***map)
 {
-	int	fd;
-	int	line;
-	char	c;
+	int	i;
+	int	j;
 
-	fd = open(file, O_RDONLY);
-	if (fd == -1)
+	i = -1;
+	while (map[++i])
 	{
-		ft_printf("%s: %s\n", strerror(errno), file);
-		exit(1);
+		j = -1;
+		while (map[i][++j])
+			ft_printf("%s", map[i][j]);
 	}
-	while(read(fd,c,1) != NULL)
-	close(fd);
-}
+} */
 
 int	main(int argc, char **argv)
 {
-	int	fd;
+	t_point	**grid;
+	int		i;
+	int		j;
 
+	i = 0;
 	if (argc != 2)
 		return (0);
+	if (file_exist_or_empty(argv[1]) < 0)
+		return (0);
+	grid = create_grid(argv[1]);
+	if (!grid)
+		return (0);
+	while (grid[i])
+	{
+		j = 0;
+		while (grid[i][j].color)
+		{
+			ft_printf(" %d, %s", grid[i][j].value, grid[i][j].color);
+			j++;
+		}
+		ft_printf("\n");
+		i++;
+	}
+	ft_free_grid(grid);
 }
 /*Check input:
 - File exist and can be opened.
 - Check if file can be read.
 - Handle empty file
+- File doesn't end with '\n'
+- File need to end with .fdf
 - Each row need to have same number of value
 - Value need to be a valid number (not overflow), and can be turned into number
 - file need to have nly number, space, new line and color code.

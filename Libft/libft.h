@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 10:54:08 by atran             #+#    #+#             */
-/*   Updated: 2025/02/17 14:54:19 by atran            ###   ########.fr       */
+/*   Updated: 2025/02/18 15:33:57 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ int					ft_putstr(char *s);
 int					ft_unsigned_hex(uint64_t n, char c);
 int					ft_putnbr(int64_t n);
 void				ft_free_str(char **str);
+void				ft_free_strarr(char **str_arr);
+void				ft_free_2D_strarr(char ***str_arr);
 char				*get_next_line(int fd);
 
 #endif

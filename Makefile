@@ -6,13 +6,13 @@
 #    By: atran <atran@student.hive.fi>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/06 17:50:04 by atran             #+#    #+#              #
-#    Updated: 2025/02/17 12:59:56 by atran            ###   ########.fr        #
+#    Updated: 2025/02/18 17:31:42 by atran            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fdf
 
-SRCS = fdf.c
+SRCS = fdf.c check_file_and_create_map.c create_grid.c
 
 OBJS = $(SRCS:%.c=%.o)
 

@@ -6,7 +6,7 @@
 #    By: atran <atran@student.hive.fi>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/01 14:02:39 by atran             #+#    #+#              #
-#    Updated: 2025/02/17 13:15:40 by atran            ###   ########.fr        #
+#    Updated: 2025/02/18 15:34:05 by atran            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 		ft_putstr_fd.c ft_putendl_fd.c ft_calloc.c ft_strdup.c ft_putnbr_fd.c \
 		ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstlast_bonus.c \
 		ft_lstadd_back_bonus.c ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c \
-		ft_lstmap_bonus.c ft_print_nbr.c ft_printf.c ft_free_str.c get_next_line.c
+		ft_lstmap_bonus.c ft_print_nbr.c ft_printf.c ft_free_str.c get_next_line.c \
+		ft_free_strarr.c ft_free_2D_strarr.c
 
 
 OBJS = $(SRCS:.c=.o)
