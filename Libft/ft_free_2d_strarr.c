@@ -6,16 +6,16 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 10:25:19 by atran             #+#    #+#             */
-/*   Updated: 2025/02/18 13:09:27 by atran            ###   ########.fr       */
+/*   Updated: 2025/02/20 16:36:53 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_free_2D_strarr(char ***str_arr)
+void	ft_free_2d_strarr(char ***str_arr)
 {
 	int	i;
-	int j;
+	int	j;
 
 	i = 0;
 	j = 0;

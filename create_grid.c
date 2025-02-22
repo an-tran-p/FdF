@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 17:29:48 by atran             #+#    #+#             */
-/*   Updated: 2025/02/18 17:30:38 by atran            ###   ########.fr       */
+/*   Updated: 2025/02/20 18:31:34 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,27 @@ void	ft_free_grid(t_point **grid)
 	}
 }
 
+char	*get_color(char *str)
+{
+	char	*color;
+	char	*org_color;
+	int		i;
+
+	org_color = ft_strchr(str, ',') + 1;
+	color = ft_calloc(11, sizeof(char));
+	if (!color)
+		return (NULL);
+	color = ft_memcpy(color, org_color, 10);
+	i = 0;
+	while (i < 10)
+	{
+		if (!color[i])
+			color[i] = '0';
+		i++;
+	}
+	return (color);
+}
+
 t_point	**pop_grid(char ***map, t_point **grid, int line)
 {
 	int	i;
@@ -52,9 +73,9 @@ t_point	**pop_grid(char ***map, t_point **grid, int line)
 		{
 			grid[i][j].value = ft_atoi(map[i][j]);
 			if (ft_strchr(map[i][j], ','))
-				grid[i][j].color = ft_strdup(ft_strchr(map[i][j], ',') + 1);
+				grid[i][j].color = get_color(map[i][j]);
 			else
-				grid[i][j].color = ft_strdup("0xADD8E6");
+				grid[i][j].color = ft_strdup("0xFF000000");
 			if (!grid[i][j].color)
 				return (NULL);
 		}
@@ -77,16 +98,16 @@ t_point	**create_grid(char *file)
 	grid = malloc((line + 1) * sizeof(t_point *));
 	if (!grid)
 	{
-		ft_free_2D_strarr(map);
+		ft_free_2d_strarr(map);
 		return (NULL);
 	}
 	grid = pop_grid(map, grid, line);
 	if (!grid)
 	{
-		ft_free_2D_strarr(map);
+		ft_free_2d_strarr(map);
 		ft_free_grid(grid);
 		return (NULL);
 	}
-	ft_free_2D_strarr(map);
+	ft_free_2d_strarr(map);
 	return (grid);
 }

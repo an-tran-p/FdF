@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 09:51:02 by atran             #+#    #+#             */
-/*   Updated: 2025/02/18 17:35:56 by atran            ###   ########.fr       */
+/*   Updated: 2025/02/20 18:13:00 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ void	pop_map(char *file, int line_no, char ***map)
 		map[i] = ft_split(line, ' ');
 		if (!map[i])
 		{
-			ft_free_2D_strarr(map);
+			ft_free_2d_strarr(map);
 			ft_free_str(&line);
 			return ;
 		}
@@ -129,7 +129,7 @@ char	***create_map(char *file)
 	if (check_line_length(map) < 0)
 	{
 		ft_printf("Invalid map with unequal length\n");
-		ft_free_2D_strarr(map);
+		ft_free_2d_strarr(map);
 		return (NULL);
 	}
 	return (map);

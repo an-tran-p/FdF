@@ -6,17 +6,17 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 10:54:08 by atran             #+#    #+#             */
-/*   Updated: 2025/02/18 15:33:57 by atran            ###   ########.fr       */
+/*   Updated: 2025/02/20 18:11:51 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <limits.h>
+# include <stdarg.h>
 # include <stdint.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdarg.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1000
@@ -79,7 +79,7 @@ int					ft_unsigned_hex(uint64_t n, char c);
 int					ft_putnbr(int64_t n);
 void				ft_free_str(char **str);
 void				ft_free_strarr(char **str_arr);
-void				ft_free_2D_strarr(char ***str_arr);
+void				ft_free_2d_strarr(char ***str_arr);
 char				*get_next_line(int fd);
 
 #endif
