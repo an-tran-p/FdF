@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 10:04:47 by atran             #+#    #+#             */
-/*   Updated: 2025/03/07 17:42:36 by atran            ###   ########.fr       */
+/*   Updated: 2025/03/13 07:40:21 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_point
 {
 	int		value;
 	char	*color;
+	uint32_t	int_color;
 	int		x;
 	int		y;
 }			t_point;
@@ -44,5 +45,7 @@ int			count_line(char *file);
 int			check_line_length(char ***map);
 void		ft_free_grid(t_point **grid);
 t_point		**create_grid(char *file);
+uint32_t    convert_color(char *str);
+char		*get_color(char *str);
 
 #endif

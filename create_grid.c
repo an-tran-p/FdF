@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 17:29:48 by atran             #+#    #+#             */
-/*   Updated: 2025/02/20 18:31:34 by atran            ###   ########.fr       */
+/*   Updated: 2025/03/13 07:39:16 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,27 +36,6 @@ void	ft_free_grid(t_point **grid)
 	}
 }
 
-char	*get_color(char *str)
-{
-	char	*color;
-	char	*org_color;
-	int		i;
-
-	org_color = ft_strchr(str, ',') + 1;
-	color = ft_calloc(11, sizeof(char));
-	if (!color)
-		return (NULL);
-	color = ft_memcpy(color, org_color, 10);
-	i = 0;
-	while (i < 10)
-	{
-		if (!color[i])
-			color[i] = '0';
-		i++;
-	}
-	return (color);
-}
-
 t_point	**pop_grid(char ***map, t_point **grid, int line)
 {
 	int	i;
@@ -78,6 +57,7 @@ t_point	**pop_grid(char ***map, t_point **grid, int line)
 				grid[i][j].color = ft_strdup("0xFF000000");
 			if (!grid[i][j].color)
 				return (NULL);
+			grid[i][j].int_color = convert_color(grid[i][j].color);
 		}
 		grid[i][j].color = NULL;
 	}
