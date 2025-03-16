@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 07:29:52 by atran             #+#    #+#             */
-/*   Updated: 2025/03/13 07:37:06 by atran            ###   ########.fr       */
+/*   Updated: 2025/03/16 20:48:10 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,27 +33,42 @@ char	*get_color(char *str)
 	return (color);
 }
 
-int hex_char_to_int(char c)
+int	hex_char_to_int(char c)
 {
-    if (c >= '0' && c <= '9')
-        return (c - '0');
-    if (c >= 'a' && c <= 'f')
-        return (c - 'a' + 10);
-    if (c >= 'A' && c <= 'F')
-        return (c - 'A' + 10);
+	if (c >= '0' && c <= '9')
+		return (c - '0');
+	if (c >= 'a' && c <= 'f')
+		return (c - 'a' + 10);
+	if (c >= 'A' && c <= 'F')
+		return (c - 'A' + 10);
+    return (0);
 }
 
-uint32_t    convert_color(char* str)
+uint32_t	convert_color(char *str)
 {
-    int i;
-    uint_t color;
+	int i;
+	uint32_t color;
 
-    i = 0;
-    color = 0;
-    str = str + 2;
-    while (i < 8)
-    {
-        color = (color << 4) | hex_char_to_int(str[i]);
-        i ++;
-    }
+	i = 0;
+	color = 0;
+	str = str + 2;
+	while (i < 8)
+	{
+		color = (color << 4) | hex_char_to_int(str[i]);
+		i++;
+	}
+	return (color);
+}
+
+char	*set_color(char *str)
+{
+	char	*color;
+
+	if (ft_strchr(str, ','))
+		color = get_color(str);
+	else
+		color = ft_strdup("0xFF0000FF");
+	if (!color)
+		return (NULL);
+	return (color);
 }

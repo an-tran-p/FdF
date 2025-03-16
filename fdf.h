@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 10:04:47 by atran             #+#    #+#             */
-/*   Updated: 2025/03/13 07:40:21 by atran            ###   ########.fr       */
+/*   Updated: 2025/03/16 20:55:50 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,27 +25,28 @@
 #  define M_PI 3.14159265358979323846
 # endif
 
-# define WIDTH 800
-# define HEIGHT 600
+# define WIDTH 1920
+# define HEIGHT 1080
 
 typedef struct s_point
 {
-	int		value;
-	char	*color;
+	int			value;
+	char		*color;
 	uint32_t	int_color;
-	int		x;
-	int		y;
-}			t_point;
+	int			x;
+	int			y;
+}				t_point;
 
-int			ft_printf(const char *str, ...);
-char		*get_next_line(int fd);
-int			file_exist_or_empty(char *file);
-char		***create_map(char *file);
-int			count_line(char *file);
-int			check_line_length(char ***map);
-void		ft_free_grid(t_point **grid);
-t_point		**create_grid(char *file);
-uint32_t    convert_color(char *str);
-char		*get_color(char *str);
+int				ft_printf(const char *str, ...);
+char			*get_next_line(int fd);
+int				file_exist_or_empty(char *file);
+char			***create_map(char *file);
+int				count_line(char *file);
+int				check_line_length(char ***map);
+void			ft_free_grid(t_point **grid);
+t_point			**create_grid(char *file);
+uint32_t		convert_color(char *str);
+char			*get_color(char *str);
+char			*set_color(char *str);
 
 #endif

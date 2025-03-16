@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 17:29:48 by atran             #+#    #+#             */
-/*   Updated: 2025/03/13 07:39:16 by atran            ###   ########.fr       */
+/*   Updated: 2025/03/16 20:41:58 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,7 @@ t_point	**pop_grid(char ***map, t_point **grid, int line)
 		while (map[i][++j])
 		{
 			grid[i][j].value = ft_atoi(map[i][j]);
-			if (ft_strchr(map[i][j], ','))
-				grid[i][j].color = get_color(map[i][j]);
-			else
-				grid[i][j].color = ft_strdup("0xFF000000");
+			grid[i][j].color = set_color(map[i][j]);
 			if (!grid[i][j].color)
 				return (NULL);
 			grid[i][j].int_color = convert_color(grid[i][j].color);
