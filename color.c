@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 07:29:52 by atran             #+#    #+#             */
-/*   Updated: 2025/03/16 20:48:10 by atran            ###   ########.fr       */
+/*   Updated: 2025/03/22 15:26:59 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,13 @@ int	hex_char_to_int(char c)
 		return (c - 'a' + 10);
 	if (c >= 'A' && c <= 'F')
 		return (c - 'A' + 10);
-    return (0);
+	return (0);
 }
 
 uint32_t	convert_color(char *str)
 {
-	int i;
-	uint32_t color;
+	int			i;
+	uint32_t	color;
 
 	i = 0;
 	color = 0;
@@ -71,4 +71,11 @@ char	*set_color(char *str)
 	if (!color)
 		return (NULL);
 	return (color);
+}
+
+void	get_rgb(uint32_t color, t_point point)
+{
+	point.r = (color >> 24) & 0xFF;
+	point.g = (color >> 16) & 0xFF;
+	point.b = (color >> 8) & 0xFF;
 }

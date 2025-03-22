@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 10:04:47 by atran             #+#    #+#             */
-/*   Updated: 2025/03/16 20:55:50 by atran            ###   ########.fr       */
+/*   Updated: 2025/03/22 16:48:40 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,28 @@ typedef struct s_point
 	int			value;
 	char		*color;
 	uint32_t	int_color;
+	int			r;
+	int			g;
+	int			b;
 	int			x;
 	int			y;
 }				t_point;
+
+typedef struct s_line
+{
+	int			dx;
+	int			dy;
+	int			sx;
+	int			sy;
+	int			err;
+	int			steps;
+	float		step_r;
+	float		step_g;
+	float		step_b;
+	float		cur_r;
+	float		cur_g;
+	float		cur_b;
+}				t_line;
 
 int				ft_printf(const char *str, ...);
 char			*get_next_line(int fd);
@@ -48,5 +67,6 @@ t_point			**create_grid(char *file);
 uint32_t		convert_color(char *str);
 char			*get_color(char *str);
 char			*set_color(char *str);
+void			get_rgb(uint32_t color, t_point point);
 
 #endif
