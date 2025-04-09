@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 10:04:17 by atran             #+#    #+#             */
-/*   Updated: 2025/03/22 17:30:41 by atran            ###   ########.fr       */
+/*   Updated: 2025/04/09 18:14:00 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,15 @@ void	set_line(t_line *line, t_point a, t_point b)
 		(*line).steps = (*line).dx;
 	else if ((*line).dx < (*line).dy)
 		(*line).steps = (*line).dy;
-	(*line).step_r = (float)((a.r - b.r) / (*line).steps);
-	(*line).step_g = (float)((a.g - b.g) / (*line).steps);
-	(*line).step_b = (float)((a.b - b.b) / (*line).steps);
+	(*line).step_r = (float)(a.r - b.r) / (*line).steps;
+	(*line).step_g = (float)(a.g - b.g) / (*line).steps;
+	(*line).step_b = (float)(a.b - b.b) / (*line).steps;
 	(*line).cur_r = a.r;
 	(*line).cur_g = a.g;
 	(*line).cur_b = a.b;
 }
 
-void	check_err(t_line *line, t_point temp)
+void	check_err(t_line *line, t_point *temp)
 {
 	int	e2;
 
@@ -50,12 +50,12 @@ void	check_err(t_line *line, t_point temp)
 	if (e2 > -(*line).dy)
 	{
 		(*line).err -= (*line).dy;
-		temp.x += (*line).sx;
+		(*temp).x += (*line).sx;
 	}
 	if (e2 < (*line).dx)
 	{
 		(*line).err += (*line).dx;
-		temp.y += (*line).sy;
+		(*temp).y += (*line).sy;
 	}
 }
 
@@ -74,7 +74,7 @@ void	draw_line_gradient(mlx_image_t *image, t_point a, t_point b)
 		mlx_put_pixel(image, temp.x + WIDTH / 2, temp.y + HEIGHT / 2, color);
 		if (temp.x == b.x && temp.y == b.y)
 			break ;
-		check_err(&line, temp);
+		check_err(&line, &temp);
 		line.cur_r += line.step_r;
 		line.cur_g += line.step_g;
 		line.cur_b += line.step_b;
