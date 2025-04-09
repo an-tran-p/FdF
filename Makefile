@@ -6,13 +6,14 @@
 #    By: atran <atran@student.hive.fi>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/06 17:50:04 by atran             #+#    #+#              #
-#    Updated: 2025/03/13 18:56:57 by atran            ###   ########.fr        #
+#    Updated: 2025/04/09 20:32:40 by atran            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fdf
 
-SRCS = fdf.c check_file_and_create_map.c create_grid.c color.c
+SRCS = fdf.c check_file_and_create_map.c create_grid.c color.c draw_line.c \
+		render_grid.c
 
 MLX_DIR = MLX42
 MLX_REPO = git@github.com:codam-coding-college/MLX42.git

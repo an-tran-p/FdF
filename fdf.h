@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 10:04:47 by atran             #+#    #+#             */
-/*   Updated: 2025/03/22 16:48:40 by atran            ###   ########.fr       */
+/*   Updated: 2025/04/09 20:33:03 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,9 @@ t_point			**create_grid(char *file);
 uint32_t		convert_color(char *str);
 char			*get_color(char *str);
 char			*set_color(char *str);
-void			get_rgb(uint32_t color, t_point point);
+void			get_rgb(uint32_t color, t_point *point);
+void			draw_line_gradient(mlx_image_t *image, t_point a, t_point b);
+void			render_points(t_point **grid, mlx_image_t *image, int zoom);
+void			render_grid(t_point **grid, mlx_image_t *image);
 
 #endif
