@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 10:04:47 by atran             #+#    #+#             */
-/*   Updated: 2025/04/09 20:33:03 by atran            ###   ########.fr       */
+/*   Updated: 2025/04/09 21:18:10 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@
 #  define M_PI 3.14159265358979323846
 # endif
 
-# define WIDTH 1920
-# define HEIGHT 1080
+# define WIDTH 2560
+# define HEIGHT 1440
 
 typedef struct s_point
 {
@@ -69,7 +69,7 @@ char			*get_color(char *str);
 char			*set_color(char *str);
 void			get_rgb(uint32_t color, t_point *point);
 void			draw_line_gradient(mlx_image_t *image, t_point a, t_point b);
-void			render_points(t_point **grid, mlx_image_t *image, int zoom);
+void			render_points(t_point **grid, int zoom);
 void			render_grid(t_point **grid, mlx_image_t *image);
 
 #endif

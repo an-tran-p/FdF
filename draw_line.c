@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 20:30:11 by atran             #+#    #+#             */
-/*   Updated: 2025/04/09 20:32:59 by atran            ###   ########.fr       */
+/*   Updated: 2025/04/09 21:06:20 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ void	set_line(t_line *line, t_point a, t_point b)
 		(*line).steps = (*line).dx;
 	else if ((*line).dx < (*line).dy)
 		(*line).steps = (*line).dy;
-	(*line).step_r = (float)(a.r - b.r) / (*line).steps;
-	(*line).step_g = (float)(a.g - b.g) / (*line).steps;
-	(*line).step_b = (float)(a.b - b.b) / (*line).steps;
+	(*line).step_r = (float)(b.r - a.r) / (*line).steps;
+	(*line).step_g = (float)(b.g - a.g) / (*line).steps;
+	(*line).step_b = (float)(b.b - a.b) / (*line).steps;
 	(*line).cur_r = a.r;
 	(*line).cur_g = a.g;
 	(*line).cur_b = a.b;

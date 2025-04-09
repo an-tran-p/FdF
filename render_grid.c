@@ -6,13 +6,13 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 20:29:17 by atran             #+#    #+#             */
-/*   Updated: 2025/04/09 20:33:07 by atran            ###   ########.fr       */
+/*   Updated: 2025/04/09 21:18:49 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	render_points(t_point **grid, mlx_image_t *image, int zoom)
+void	render_points(t_point **grid, int zoom)
 {
 	double	radians;
 	int		i;
@@ -28,8 +28,6 @@ void	render_points(t_point **grid, mlx_image_t *image, int zoom)
 			grid[i][j].x = i * zoom * cos(radians) - j * zoom * cos(radians);
 			grid[i][j].y = i * zoom * sin(radians) + j * zoom * sin(radians)
 				- grid[i][j].value * 0.2 * zoom;
-			mlx_put_pixel(image, grid[i][j].x + WIDTH / 2, grid[i][j].y + HEIGHT
-				/ 2, grid[i][j].int_color);
 			j++;
 		}
 		i++;

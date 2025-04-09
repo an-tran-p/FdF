@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 10:04:17 by atran             #+#    #+#             */
-/*   Updated: 2025/04/09 20:33:01 by atran            ###   ########.fr       */
+/*   Updated: 2025/04/09 21:18:57 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int argc, char **argv)
 	mlx_image_t	*image;
 	int			zoom;
 
-	zoom = 11;
+	zoom = 1;
 	if (argc != 2)
 		return (0);
 	if (file_exist_or_empty(argv[1]) < 0)
@@ -31,7 +31,7 @@ int	main(int argc, char **argv)
 	if (!mlx)
 		return (0);
 	image = mlx_new_image(mlx, WIDTH, HEIGHT);
-	render_points(grid, image, zoom);
+	render_points(grid, zoom);
 	render_grid(grid, image);
 	mlx_image_to_window(mlx, image, 0, 0);
 	mlx_loop(mlx);
