@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 17:29:48 by atran             #+#    #+#             */
-/*   Updated: 2025/03/22 15:27:35 by atran            ###   ########.fr       */
+/*   Updated: 2025/04/09 18:57:57 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,14 @@ t_point	**pop_grid(char ***map, t_point **grid, int line)
 		if (!grid[i])
 			return (NULL);
 		j = -1;
-		while (map[i][++j])
+		while (++j < check_line_length(map) && map[i][j])
 		{
 			grid[i][j].value = ft_atoi(map[i][j]);
 			grid[i][j].color = set_color(map[i][j]);
 			if (!grid[i][j].color)
 				return (NULL);
 			grid[i][j].int_color = convert_color(grid[i][j].color);
-			get_rgb(grid[i][j].int_color, grid[i][j]);
+			get_rgb(grid[i][j].int_color, &grid[i][j]);
 		}
 		grid[i][j].color = NULL;
 	}

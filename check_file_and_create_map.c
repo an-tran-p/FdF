@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 09:51:02 by atran             #+#    #+#             */
-/*   Updated: 2025/03/16 21:01:40 by atran            ###   ########.fr       */
+/*   Updated: 2025/04/09 18:59:08 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,12 @@ int	count_line(char *file)
 			line++;
 	}
 	if (prev != '\n')
-	{
+		line += 1;
+	/* {
 		ft_printf("Invalid map without new line in end of file\n");
 		return (-1);
 		close(fd);
-	}
+	} */
 	close(fd);
 	return (line);
 }

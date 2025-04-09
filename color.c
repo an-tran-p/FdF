@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 07:29:52 by atran             #+#    #+#             */
-/*   Updated: 2025/03/22 15:26:59 by atran            ###   ########.fr       */
+/*   Updated: 2025/04/09 19:14:20 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,15 @@ char	*get_color(char *str)
 	char	*org_color;
 	int		i;
 
-	org_color = ft_strchr(str, ',') + 1;
+	org_color = ft_strchr(str, ',');
+	if (!org_color)
+		return (NULL);
+	org_color++;
 	color = ft_calloc(11, sizeof(char));
 	if (!color)
 		return (NULL);
-	color = ft_memcpy(color, org_color, 10);
-	i = 0;
+	color = ft_memcpy(color, org_color, ft_strlen(org_color));
+	i = ft_strlen(org_color) + 1;
 	while (i < 10)
 	{
 		if (!color[i])
@@ -73,9 +76,9 @@ char	*set_color(char *str)
 	return (color);
 }
 
-void	get_rgb(uint32_t color, t_point point)
+void	get_rgb(uint32_t color, t_point *point)
 {
-	point.r = (color >> 24) & 0xFF;
-	point.g = (color >> 16) & 0xFF;
-	point.b = (color >> 8) & 0xFF;
+	point->r = (color >> 24) & 0xFF;
+	point->g = (color >> 16) & 0xFF;
+	point->b = (color >> 8) & 0xFF;
 }
