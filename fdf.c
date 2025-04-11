@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 10:04:17 by atran             #+#    #+#             */
-/*   Updated: 2025/04/11 19:48:11 by atran            ###   ########.fr       */
+/*   Updated: 2025/04/11 20:36:33 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	run_window(t_point **grid)
 {
 	t_window	window;
 
-	window.zoom = 10;
+	window.zoom = 1;
 	window.grid = grid;
 	window.mlx = mlx_init(WIDTH, HEIGHT, "FdF", true);
 	if (!window.mlx)

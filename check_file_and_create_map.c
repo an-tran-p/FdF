@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 09:51:02 by atran             #+#    #+#             */
-/*   Updated: 2025/04/09 20:27:23 by atran            ###   ########.fr       */
+/*   Updated: 2025/04/11 21:04:11 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ int	check_line_length(char ***map)
 	length = 0;
 	while (map[0][length])
 		length++;
+	if (length > WIDTH / 2)
+		return (-1);
 	i = 0;
 	while (map[i])
 	{
@@ -113,8 +115,12 @@ char	***create_map(char *file)
 	char	***map;
 
 	line_no = count_line(file);
-	if (line_no < 0)
+	if (line_no < 0 || line_no > HEIGHT / 2)
+	{
+		if (line_no > HEIGHT / 2)
+			ft_printf("Too big map\n");
 		return (NULL);
+	}
 	map = malloc((line_no + 1) * sizeof(char **));
 	if (!map)
 		return (NULL);
@@ -124,7 +130,7 @@ char	***create_map(char *file)
 	map[line_no] = NULL;
 	if (check_line_length(map) < 0)
 	{
-		ft_printf("Invalid map with unequal length\n");
+		ft_printf("Invalid map with unequal length or too big map\n");
 		ft_free_2d_strarr(map);
 		return (NULL);
 	}
