@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 10:04:47 by atran             #+#    #+#             */
-/*   Updated: 2025/04/09 21:18:10 by atran            ###   ########.fr       */
+/*   Updated: 2025/04/11 19:42:01 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,17 @@ typedef struct s_point
 	int			y;
 }				t_point;
 
+typedef struct s_window
+{
+	t_point		**grid;
+	mlx_t		*mlx;
+	mlx_image_t	*image;
+	mlx_image_t	*new_image;
+	int			org_width;
+	int			org_height;
+	int			zoom;
+}				t_window;
+
 typedef struct s_line
 {
 	int			dx;
@@ -69,7 +80,7 @@ char			*get_color(char *str);
 char			*set_color(char *str);
 void			get_rgb(uint32_t color, t_point *point);
 void			draw_line_gradient(mlx_image_t *image, t_point a, t_point b);
-void			render_points(t_point **grid, int zoom);
+void			render_points(t_point **grid, t_window *window);
 void			render_grid(t_point **grid, mlx_image_t *image);
 
 #endif
