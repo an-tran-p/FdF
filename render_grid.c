@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 20:29:17 by atran             #+#    #+#             */
-/*   Updated: 2025/04/11 20:40:16 by atran            ###   ########.fr       */
+/*   Updated: 2025/04/13 16:05:56 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,21 @@ void	render_points(t_point **grid, t_window *window)
 	int		i;
 	int		j;
 
-	i = 0;
+	i = -1;
+	window->min_value = grid[0][0].value;
 	radians = 30 * (M_PI / 180);
-	while (grid[i])
+	while (grid[++i])
 	{
-		j = 0;
-		while (grid[i][j].color)
+		j = -1;
+		while (grid[i][++j].color)
 		{
 			grid[i][j].x = i * window->zoom * cos(radians) - j * window->zoom
 				* cos(radians);
 			grid[i][j].y = i * window->zoom * sin(radians) + j * window->zoom
 				* sin(radians) - grid[i][j].value * 0.5 * window->zoom;
-			j++;
+			if (grid[i][j].value < window->min_value)
+				window->min_value = grid[i][j].value;
 		}
-		i++;
 	}
 	window->org_height = i;
 	window->org_width = j;

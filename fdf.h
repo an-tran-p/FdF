@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 10:04:47 by atran             #+#    #+#             */
-/*   Updated: 2025/04/11 19:42:01 by atran            ###   ########.fr       */
+/*   Updated: 2025/04/13 16:04:38 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct s_window
 	mlx_image_t	*new_image;
 	int			org_width;
 	int			org_height;
+	int			min_value;
 	int			zoom;
 }				t_window;
 

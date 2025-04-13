@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 07:29:52 by atran             #+#    #+#             */
-/*   Updated: 2025/04/09 19:14:20 by atran            ###   ########.fr       */
+/*   Updated: 2025/04/13 17:22:49 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,21 @@ char	*get_color(char *str)
 	org_color = ft_strchr(str, ',');
 	if (!org_color)
 		return (NULL);
-	org_color++;
-	color = ft_calloc(11, sizeof(char));
+	org_color = org_color + 3;
+	color = ft_calloc(10, sizeof(char));
 	if (!color)
 		return (NULL);
-	color = ft_memcpy(color, org_color, ft_strlen(org_color));
-	i = ft_strlen(org_color) + 1;
-	while (i < 10)
+	ft_memcpy(color, "0x", 2);
+	i = 2;
+	while (i < (8 - (int)ft_strlen(org_color)))
 	{
 		if (!color[i])
 			color[i] = '0';
 		i++;
 	}
+	ft_memcpy(&color[i], org_color, ft_strlen(org_color));
+	if (!color[8])
+		ft_memcpy(&color[8], "FF", 2);
 	return (color);
 }
 

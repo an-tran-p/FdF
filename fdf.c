@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 10:04:17 by atran             #+#    #+#             */
-/*   Updated: 2025/04/11 20:36:33 by atran            ###   ########.fr       */
+/*   Updated: 2025/04/13 16:10:43 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@ void	handle_input(mlx_key_data_t keydata, void *param)
 		mlx_close_window(window->mlx);
 	if (keydata.key == MLX_KEY_UP && keydata.action == MLX_PRESS)
 	{
-		if (window->org_height * (window->zoom + 1) < HEIGHT / 2
-			&& window->org_width * (window->zoom + 1) < WIDTH / 2)
+		if ((window->org_height + window->org_width - window->min_value)
+			* (window->zoom + 1) * 0.5 < HEIGHT / 2 && window->org_width
+			* (window->zoom + 1) < WIDTH / 2)
 			window->zoom++;
 	}
 	if (keydata.key == MLX_KEY_DOWN && keydata.action == MLX_PRESS)
